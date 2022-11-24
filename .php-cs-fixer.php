@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<HEADER
-This file is part of PHP CS Fixer.
+This file is part of james.xue/laravel-docker-compose.
 
 (c) vinhson <15227736751@qq.com>
 
@@ -12,7 +12,6 @@ HEADER;
 $finder = PhpCsFixer\Finder::create()
     ->in([
         __DIR__ . '/src',
-        __DIR__ . '/tests',
     ])
     ->exclude([
         __DIR__ . '/vendor',
