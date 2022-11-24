@@ -1,0 +1,70 @@
+{
+    "name": "james.xue/laravel-package-skeleton",
+    "description": "Laravel package template",
+    "keywords": [],
+    "homepage": "https://github.com/xiaoxuan6/laravel-package-skeleton.git",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vinhson\\LaravelPackageSkeleton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vinhson\\LaravelPackageSkeleton\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "xiaoxuan6",
+            "email": "1527736751@qq.com",
+            "role": "Developer"
+        }
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "laravel/legacy-factories": "1.x-dev",
+        "mockery/mockery": "~1.3||~1.4||^1.5",
+        "orchestra/testbench": "^4.0||^5.0||^6.0||^7.0",
+        "phpstan/phpstan": "1.4.x-dev",
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "vimeo/psalm": "^4.16"
+    },
+    "require": {
+        "php": ">=7.3",
+        "laravel/framework": "^6.0||^7.0||^8.0||^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers":[
+                "Vinhson\\LaravelPackageSkeleton\\LaravelPackageSkeletonServiceProvider"
+            ]
+        },
+        "branch-alias": {}
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "fix-style": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --using-cache=no --ansi",
+        "phpstan": "vendor/bin/phpstan analyse --ansi",
+        "psalm": "./vendor/bin/psalm"
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests.",
+        "fix-style": "Run style checks and fix violations.",
+        "phpstan": "Run php static analysis tool."
+    },
+    "config": {
+        "platform": {},
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    },
+    "repositories": [],
+    "suggest": {
+        "ext-openssl": "Required to support openssl"
+    },
+    "bin": []
+}

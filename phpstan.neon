@@ -1,0 +1,11 @@
+parameters:
+
+    paths:
+       - config
+       - src
+       # - tests
+
+    # The level 9 is the highest level 0 是最宽松的，9 是最严格的
+    level: 9
+
+    checkMissingIterableValueType: false
