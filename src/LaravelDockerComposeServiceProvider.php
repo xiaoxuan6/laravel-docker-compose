@@ -10,6 +10,7 @@
 namespace Vinhson\LaravelPackageSkeleton;
 
 use Illuminate\Support\ServiceProvider;
+use Vinhson\LaravelDockerCompose\Commands\PublishCommand;
 
 class LaravelDockerComposeServiceProvider extends ServiceProvider
 {
@@ -28,7 +29,7 @@ class LaravelDockerComposeServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(dirname(__DIR__) . '/migrations/');
+            $this->commands(PublishCommand::class);
         }
     }
 }

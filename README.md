@@ -1,28 +1,20 @@
-# laravel-package-skeleton
+# laravel-docker-compose
 
-[![Latest Stable Version](https://poser.pugx.org/james.xue/package-skeleton/v/stable.svg)](https://packagist.org/packages/james.xue/package-skeleton) 
-[![Total Downloads](https://poser.pugx.org/james.xue/package-skeleton/downloads.svg)](https://packagist.org/packages/james.xue/package-skeleton) 
-[![Latest Unstable Version](https://poser.pugx.org/james.xue/package-skeleton/v/unstable.svg)](https://packagist.org/packages/james.xue/package-skeleton) 
-[![License](https://poser.pugx.org/james.xue/package-skeleton/license.svg)](https://packagist.org/packages/james.xue/package-skeleton)
+[![Latest Stable Version](https://poser.pugx.org/james.xue/laravel-docker-compose/v/stable.svg)](https://packagist.org/packages/james.xue/laraevl-docker-compose) 
+[![Total Downloads](https://poser.pugx.org/james.xue/laravel-docker-compose/downloads.svg)](https://packagist.org/packages/james.xue/laraevl-docker-compose) 
+[![Latest Unstable Version](https://poser.pugx.org/james.xue/laravel-docker-compose/v/unstable.svg)](https://packagist.org/packages/james.xue/laraevl-docker-compose) 
+[![License](https://poser.pugx.org/james.xue/laravel-docker-compose/license.svg)](https://packagist.org/packages/james.xue/laraevl-docker-compose)
 
-# [官方文档](https://market.aliyun.com/products/57000002/cmapi017922.html?spm=5176.2020520132.101.14.50467218ejEKGC#sku=yuncode1192200006)
 ## Install
 
 ```shell
-composer require "james.xue/laravel-package-skeleton"
+composer require "james.xue/laravel-docker-compose"
 ```
 
-## Publishing configuration
+## Publishing file
 ```angular2html
-php artisan vendor:publish --tag=laravel-package-skeleton
+php artisan laravel-docker-compose:publish dnmp
 ```
-
-## Usage
-``` php
-
-```
-
-
 
 ## License
 
