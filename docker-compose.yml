@@ -26,13 +26,13 @@ services:
     networks:
       dnmp:
 
-  redis:
-    container_name: redis
-    image: redis
-    ports:
-      - 6379:6379
-    networks:
-      dnmp:
+#  redis:
+#    container_name: redis
+#    image: redis
+#    ports:
+#      - 6379:6379
+#    networks:
+#      dnmp:
 
   nginx:
     container_name: nginx
