@@ -8,12 +8,7 @@
 ## Install
 
 ```shell
-composer require "james.xue/laravel-docker-compose"
-```
-
-## Publishing file
-```angular2html
-php artisan laravel-docker-compose:publish dnmp
+composer create-project james.xue/laravel-docker-compose
 ```
 
 ## License
