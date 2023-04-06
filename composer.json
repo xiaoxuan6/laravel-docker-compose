@@ -23,8 +23,7 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "search new",
-      "make up"
+      "search new"
     ]
   }
 }
