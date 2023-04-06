@@ -1,29 +1,29 @@
 {
-  "name": "james.xue/laravel-docker-compose",
-  "description": "Create application laravel for docker-compose",
-  "type": "project",
-  "keywords": [
-    "docker",
-    "laravel",
-    "docker-compose",
-    "laravel-docker-compose"
-  ],
-  "homepage": "https://github.com/xiaoxuan6/laravel-docker-compose.git",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "xiaoxuan6",
-      "email": "1527736751@qq.com",
-      "role": "Developer"
+    "name": "james.xue/laravel-docker-compose",
+    "description": "Create application laravel for docker-compose",
+    "type": "project",
+    "keywords": [
+        "docker",
+        "laravel",
+        "docker-compose",
+        "laravel-docker-compose"
+    ],
+    "homepage": "https://github.com/xiaoxuan6/laravel-docker-compose.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xiaoxuan6",
+            "email": "1527736751@qq.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "james.xue/search": "^0.32.0"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "search new"
+        ]
     }
-  ],
-  "require": {
-    "php": ">=7.3",
-    "james.xue/search": "^0.32.0"
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "search new"
-    ]
-  }
 }
