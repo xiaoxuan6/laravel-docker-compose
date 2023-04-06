@@ -23,9 +23,7 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "search new",
-      "@php -r \"copy('.env', './laravel/.env')\"",
-      "php artisan key:generate"
+      "search new"
     ]
   }
 }
