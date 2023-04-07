@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+namespace App;
+
+use Symfony\Component\Console\Exception\ExceptionInterface;
+
+$autoloads = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php'
+];
+foreach ($autoloads as $autoload) {
+    if (file_exists($autoload)) {
+        require_once $autoload;
+    }
+}
+
+try {
+    (new Application())();
+} catch (ExceptionInterface $e) {
+}
