@@ -27,9 +27,12 @@
             "App\\": "app/"
         }
     },
+    "bin": [
+        "build/env"
+    ],
     "scripts": {
         "post-create-project-cmd": [
-            "build/env run"
+            "vendor/bin/env run"
         ],
         "pint": "vendor/bin/php-cs-fixer fix"
     },
