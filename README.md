@@ -29,6 +29,18 @@ docker-compose up -d
 
 访问页面 `curl http://127.0.0.1`, 如果能正常表示部署成功，否则失败。
 
+## Run migrate
+
+执行数据库迁移
+
+```bash
+make migrate
+```
+
+## Docker Redis
+
+如果使用 `redis` 容器，需修改 `docker-compose.yml` 将 `redis` 服务打开并重启 `docker`
+
 ## License
 
 MIT
