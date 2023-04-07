@@ -11,6 +11,14 @@
 composer create-project james.xue/laravel-docker-compose
 ```
 
+## Update docker `.env`
+
+修改 `docker` 中 `mysql` 配置 `env`, 需要同步到项目 `env` 中，需执行：
+
+```bash
+composer env
+```
+
 ## License
 
 MIT
