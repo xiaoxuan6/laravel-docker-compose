@@ -36,7 +36,7 @@ class EnvCommand extends Command
         $baseDirectory = dirname(dirname(__DIR__));
 
         $searchCollect = collect(['DB_HOST=127.0.0.1','REDIS_HOST=127.0.0.1', 'DB_DATABASE=homestead', 'DB_USERNAME=homestead','DB_PASSWORD=secret']);
-        $replaceCollect = collect([['DB_HOST=mysql', 'REDIS_HOST=redis']]);
+        $replaceCollect = collect(['DB_HOST=mysql', 'REDIS_HOST=redis']);
 
         // docker .env
         $finder = new Finder();
@@ -44,11 +44,11 @@ class EnvCommand extends Command
         $dockerEnvContent = reset($dockerEnvFile)->getContents();
 
         $dockerEnvArr = array_filter(preg_split("/\r\n|\n|\r/", $dockerEnvContent));
-        $replaceCollect->merge($dockerEnvArr);
+        $replaceCollect->push(...$dockerEnvArr);
 
         $this->replaceEnv($searchCollect->toArray(), $replaceCollect->toArray());
 
-        $output->writeln("<info>set successfully</info>");
+        $output->writeln("<info>Application env set successfully</info>");
 
         return self::SUCCESS;
     }
