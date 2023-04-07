@@ -22,3 +22,6 @@ migrate:
 
 log:
 	@docker-compose logs -f
+
+run:
+	@build/env

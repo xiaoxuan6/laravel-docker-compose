@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This file is part of james.xue/search.
+ *
+ * (c) vinhson <15227736751@qq.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ *
+ */
+
+namespace App;
+
+use Exception;
+use Symfony\Component\Console\Exception\ExceptionInterface;
+
+$autoloads = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php'
+];
+foreach ($autoloads as $autoload) {
+    if (file_exists($autoload)) {
+        require_once $autoload;
+    }
+}
+
+try {
+    (new Application())();
+} catch (ExceptionInterface | Exception $e) {
+}

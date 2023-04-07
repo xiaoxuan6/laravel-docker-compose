@@ -33,7 +33,7 @@
             "@env"
         ],
         "pint": "vendor/bin/php-cs-fixer fix",
-        "env": "App\\Commands\\EnvCommand"
+        "env": "make run"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "*"

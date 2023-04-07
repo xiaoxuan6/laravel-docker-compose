@@ -22,7 +22,8 @@ class EnvCommand extends Command
 {
     protected function configure()
     {
-        $this->setDescription('设置 .env 配置信息');
+        $this->setName('run')
+            ->setDescription('设置 .env 配置信息');
     }
 
     /**
@@ -42,6 +43,8 @@ class EnvCommand extends Command
 
         $filesystem = new Filesystem();
         $filesystem->dumpFile($directory . "/.env", $newEnvFile);
+
+        $output->writeln("<info>set successfully</info>");
 
         return self::SUCCESS;
     }
