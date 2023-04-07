@@ -22,8 +22,7 @@ class EnvCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('run')
-            ->setDescription('设置 .env 配置信息');
+        $this->setDescription('设置 .env 配置信息');
     }
 
     /**
