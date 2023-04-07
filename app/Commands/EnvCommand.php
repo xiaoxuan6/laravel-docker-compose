@@ -35,7 +35,7 @@ class EnvCommand extends Command
     {
         $baseDirectory = dirname(dirname(__DIR__));
 
-        $searchCollect = collect(['DB_HOST=127.0.0.1','REDIS_HOST=127.0.0.1', 'DB_DATABASE=homestead', 'DB_USERNAME=homestead','DB_PASSWORD=secret']);
+        $searchCollect = collect(['DB_HOST=127.0.0.1','REDIS_HOST=127.0.0.1', 'DB_DATABASE=laravel', 'DB_USERNAME=root','DB_PASSWORD=']);
         $replaceCollect = collect(['DB_HOST=mysql', 'REDIS_HOST=redis']);
 
         // docker .env
