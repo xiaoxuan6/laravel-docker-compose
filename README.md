@@ -19,6 +19,16 @@ composer create-project james.xue/laravel-docker-compose
 composer env
 ```
 
+## Run
+
+启动 `docker`
+
+```bash
+docker-compose up -d
+```
+
+访问页面 `curl http://127.0.0.1`, 如果能正常表示部署成功，否则失败。
+
 ## License
 
 MIT
