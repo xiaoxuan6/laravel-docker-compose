@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": ">=7.3",
-        "james.xue/search": "^0.32.0"
+        "james.xue/search": "^0.33.0"
     },
     "autoload": {
         "psr-4": {
