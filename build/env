@@ -1,8 +1,19 @@
 #!/usr/bin/env php
 <?php
 
+/*
+ * This file is part of james.xue/search.
+ *
+ * (c) vinhson <15227736751@qq.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ *
+ */
+
 namespace App;
 
+use Exception;
 use Symfony\Component\Console\Exception\ExceptionInterface;
 
 $autoloads = [
@@ -17,5 +28,5 @@ foreach ($autoloads as $autoload) {
 
 try {
     (new Application())();
-} catch (ExceptionInterface $e) {
+} catch (ExceptionInterface | Exception $e) {
 }
