@@ -4,6 +4,8 @@ services:
   php:
     container_name: php
     image: xiaoxuan6/php:7.4-fpm-alpine
+    build:
+      context: ./services/php74
     restart: on-failure
     ports:
       - 9000:9000
