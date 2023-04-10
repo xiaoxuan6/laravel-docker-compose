@@ -9,5 +9,4 @@ composer.json
 .php-cs-fixer.php
 CHANGELOG.md
 LICENSE
-Makefile
 README.md
