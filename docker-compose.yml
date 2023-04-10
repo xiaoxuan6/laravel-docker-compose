@@ -21,6 +21,7 @@ services:
     ports:
       - 3306:3306
     environment:
+      TZ: "Asia/Shanghai"
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_USER: ${DB_USERNAME}
