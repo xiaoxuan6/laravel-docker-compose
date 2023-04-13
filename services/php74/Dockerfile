@@ -11,6 +11,6 @@ RUN docker-php-source extract \
     && rm -rf /tmp/reids.tar.gz
 
 ENV TZ=Asia/Shanghai
-RUN apk --no-cache add tzdata \
+RUN apk --no-cache add tzdata ca-certificates \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone

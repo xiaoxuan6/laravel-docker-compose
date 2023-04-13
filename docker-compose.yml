@@ -111,5 +111,21 @@ services:
     networks:
       dnmp:
 
+  rabbitmq:
+    container_name: rabbitmq
+    image: xiaoxuan6/rabbitmq:management-alpine
+    build:
+      context: ./services/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: unless-stopped
+    environment:
+      TZ: "Asia/Shanghai"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:15672" ]
+    networks:
+      dnmp:
+
 networks:
   dnmp:
