@@ -2,6 +2,14 @@
 
 All notable changes to `xiaoxuan6/laravel-docker-compose` will be documented in this file.
 
+## v1.2.0 - 2023-04-13
+
+### What's Changed
+
+- build(deps): bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/3
+
+**Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.1.0...v1.2.0
+
 ## v1.1.0 - 2023-04-10
 
 **Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.0.1...v1.1.0
