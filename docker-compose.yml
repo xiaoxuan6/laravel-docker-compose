@@ -80,8 +80,8 @@ services:
   artisan:
     container_name: artisan
     image: xiaoxuan6/php:7.4-fpm-alpine
-    volumes:
-      - ./laravel/:/var/www/html
+    volumes_from:
+      - php
     depends_on:
       - mysql
     working_dir: /var/www/html

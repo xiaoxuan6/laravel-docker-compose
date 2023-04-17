@@ -29,6 +29,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
+            "App\\Bootstrap\\Composer::loadMake",
             "search new",
             "@env"
         ],
