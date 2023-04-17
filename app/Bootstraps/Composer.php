@@ -10,7 +10,7 @@
  *
  */
 
-namespace App\Bootstrap;
+namespace App\Bootstraps;
 
 use TitasGailius\Terminal\Terminal;
 use Symfony\Component\Process\ExecutableFinder;
