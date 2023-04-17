@@ -40,7 +40,7 @@ class Composer
             $commands->push(...['echo "Install make"', 'search i make -s true']);
         }
 
-        if($commands) {
+        if($commands->isNotEmpty()) {
             $process = Process::fromShellCommandline($commands->join(' && '));
             $process->setTimeout(300);
             $process->run(function ($type, $line) {
