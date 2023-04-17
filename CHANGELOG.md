@@ -2,6 +2,14 @@
 
 All notable changes to `xiaoxuan6/laravel-docker-compose` will be documented in this file.
 
+## v1.3.0 - 2023-04-17
+
+### What's Changed
+
+- build(deps): update james.xue/search requirement from ^0.34.0 to ^0.36.0 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/4
+
+**Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.2.0...v1.3.0
+
 ## v1.2.0 - 2023-04-13
 
 ### What's Changed
