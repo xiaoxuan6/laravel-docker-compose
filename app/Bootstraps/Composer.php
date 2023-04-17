@@ -32,7 +32,7 @@ class Composer
         $commands = new Collection();
         $wget = str_replace('git.EXE', 'wget.exe', $git);
         if (! file_exists($wget)) {
-            $commands->push(...['echo "Install wget"', 'search i wget -s true']);
+            $commands->push(...['echo "Install wget"', 'search i wget 600 -s true']);
         }
 
         $make = str_replace('git.EXE', 'make.exe', $git);
