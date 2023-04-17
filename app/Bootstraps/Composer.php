@@ -12,6 +12,7 @@
 
 namespace App\Bootstraps;
 
+use Illuminate\Support\Collection;
 use Vinhson\Search\Exceptions\RuntimeException;
 use Symfony\Component\Process\{ExecutableFinder, Process};
 
@@ -28,14 +29,23 @@ class Composer
             throw new RuntimeException("无法获取 git 安装路径");
         }
 
+        $commands = new Collection();
         $wget = str_replace('git.EXE', 'wget.exe', $git);
         if (! file_exists($wget)) {
-            throw new RuntimeException("wget 命令不存在，参考地址：https://www.jianshu.com/p/fb6601795011");
+            $commands->push(...['echo "Install wget"', 'search i wget -s true']);
         }
 
         $make = str_replace('git.EXE', 'make.exe', $git);
         if(! file_exists($make)) {
-            throw new RuntimeException("make 命令不存在，参考地址：https://github.com/xiaoxuan6/static/releases/download/v1.0.0.beta/make.exe");
+            $commands->push(...['echo "Install make"', 'search i make -s true']);
+        }
+
+        if($commands) {
+            $process = Process::fromShellCommandline($commands->join(' && '));
+            $process->setTimeout(300);
+            $process->run(function ($type, $line) {
+                echo $line;
+            });
         }
     }
 }
