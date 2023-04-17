@@ -20,7 +20,8 @@
     "require": {
         "php": ">=7.3",
         "james.xue/search": "^0.38.0",
-        "symfony/finder": "^5.4"
+        "symfony/finder": "^5.4",
+        "illuminate/collections": "^8.83"
     },
     "autoload": {
         "psr-4": {
