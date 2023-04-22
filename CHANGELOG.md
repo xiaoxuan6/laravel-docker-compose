@@ -2,6 +2,14 @@
 
 All notable changes to `xiaoxuan6/laravel-docker-compose` will be documented in this file.
 
+## v1.8.0 - 2023-04-22
+
+#What's Changed
+
+- Add supervisor service
+
+**Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.7.0...v1.8.0
+
 ## v1.7.0 - 2023-04-22
 
 ### What's Changed
