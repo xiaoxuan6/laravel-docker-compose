@@ -6,11 +6,16 @@ services:
     image: xiaoxuan6/php:7.4-fpm-alpine
     build:
       context: ./services/php74
+      args:
+        INSTALL_SUPERVISOR: true
     restart: on-failure
     ports:
       - 9000:9000
+      - 9001:9001
     volumes:
       - ./laravel/:/var/www/html
+      - ./services/php74/supervisord.d:/supervisord.d
+      - ./services/php74/supervisord.conf:/etc/supervisord.conf
     networks:
       dnmp:
 
@@ -48,18 +53,18 @@ services:
     networks:
       dnmp:
 
-  #  redis:
-  #    container_name: redis
-  #    image: redis
-  #    ports:
-  #      - 6379:6379
-  #    healthcheck:
-  #      test: [ "CMD", "redis-cli","ping" ]
-  #      interval: 30s
-  #      timeout: 10s
-  #      retries: 5
-  #    networks:
-  #      dnmp:
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: [ "CMD", "redis-cli","ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      dnmp:
 
   nginx:
     container_name: nginx
@@ -70,7 +75,7 @@ services:
     depends_on:
       - php
       - mysql
-      - elasticsearch
+    #      - elasticsearch
     volumes:
       - ./laravel/:/var/www/html
       - ./default.conf:/etc/nginx/conf.d/default.conf
@@ -79,7 +84,9 @@ services:
 
   artisan:
     container_name: artisan
-    image: xiaoxuan6/php:7.4-fpm-alpine
+    image: xiaoxuan6/php:7.4-fpm-artisan-alpine
+    build:
+      context: ./services/php74
     volumes_from:
       - php
     depends_on:
@@ -88,58 +95,58 @@ services:
     entrypoint: [ 'php', '/var/www/html/artisan' ]
     networks:
       dnmp:
-
-  elasticsearch:
-    container_name: elasticsearch
-    build:
-      context: ./services/elasticsearch
-    image: xiaoxuan6/elasticsearch:7.17.7-alpine
-    restart: unless-stopped
-    ports:
-      - 9200:9200
-    environment:
-      - TZ=Asia/Shanghai
-      - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    volumes:
-      - ./services/elasticsearch/data:/usr/share/elasticsearch/data
-      - ./services/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://127.0.0.1:9200" ]
-      retries: 3
-      start_period: "50s"
-    networks:
-      dnmp:
-
-  kibana:
-    container_name: kibana
-    image: kibana:7.17.6
-    ports:
-      - 5601:5601
-    restart: on-failure
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    networks:
-      dnmp:
-
-  rabbitmq:
-    container_name: rabbitmq
-    image: xiaoxuan6/rabbitmq:management-alpine
-    build:
-      context: ./services/rabbitmq
-    ports:
-      - 5672:5672
-      - 15672:15672
-    restart: unless-stopped
-    environment:
-      TZ: "Asia/Shanghai"
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://127.0.0.1:15672" ]
-    networks:
-      dnmp:
+#
+#  elasticsearch:
+#    container_name: elasticsearch
+#    build:
+#      context: ./services/elasticsearch
+#    image: xiaoxuan6/elasticsearch:7.17.7-alpine
+#    restart: unless-stopped
+#    ports:
+#      - 9200:9200
+#    environment:
+#      - TZ=Asia/Shanghai
+#      - discovery.type=single-node
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    volumes:
+#      - ./services/elasticsearch/data:/usr/share/elasticsearch/data
+#      - ./services/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://127.0.0.1:9200" ]
+#      retries: 3
+#      start_period: "50s"
+#    networks:
+#      dnmp:
+#
+#  kibana:
+#    container_name: kibana
+#    image: kibana:7.17.6
+#    ports:
+#      - 5601:5601
+#    restart: on-failure
+#    depends_on:
+#      elasticsearch:
+#        condition: service_healthy
+#    environment:
+#      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+#    networks:
+#      dnmp:
+#
+#  rabbitmq:
+#    container_name: rabbitmq
+#    image: xiaoxuan6/rabbitmq:management-alpine
+#    build:
+#      context: ./services/rabbitmq
+#    ports:
+#      - 5672:5672
+#      - 15672:15672
+#    restart: unless-stopped
+#    environment:
+#      TZ: "Asia/Shanghai"
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://127.0.0.1:15672" ]
+#    networks:
+#      dnmp:
 
 networks:
   dnmp:
