@@ -24,7 +24,7 @@ composer env
 启动 `docker`
 
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 访问页面 `curl http://127.0.0.1`, 如果能正常表示部署成功，否则失败。
