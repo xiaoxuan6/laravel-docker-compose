@@ -8,6 +8,7 @@ services:
       context: ./services/php74
       args:
         INSTALL_SUPERVISOR: true
+        INSTALL_CRON: true
     restart: on-failure
     ports:
       - 9000:9000
@@ -16,6 +17,7 @@ services:
       - ./laravel/:/var/www/html
       - ./services/php74/supervisord.d:/supervisord.d
       - ./services/php74/supervisord.conf:/etc/supervisord.conf
+      - ./services/php74/cron:/etc/crontabs
     networks:
       dnmp:
 
@@ -87,8 +89,8 @@ services:
     image: xiaoxuan6/php:7.4-fpm-artisan-alpine
     build:
       context: ./services/php74
-    volumes_from:
-      - php
+    volumes:
+      - ./laravel/:/var/www/html
     depends_on:
       - mysql
     working_dir: /var/www/html

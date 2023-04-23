@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of james.xue/search.
+ * This file is part of james.xue/laravel-docker-compose.
  *
  * (c) vinhson <15227736751@qq.com>
  *

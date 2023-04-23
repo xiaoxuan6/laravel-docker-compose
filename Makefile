@@ -11,6 +11,9 @@ down:
 
 restart: down up
 
+rmi:
+	@docker images | grep "xiaoxuan6/php" | grep -v "8.0" | xargs docker rmi
+
 status:
 	@docker ps -a
 

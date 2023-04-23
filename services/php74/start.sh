@@ -7,5 +7,10 @@ else:
     echo "supervisor not install"
 fi
 
+# Start cron
+if [ "$START_CRON" = true ]; then
+    crond -f -d 8 &
+fi
+
 # Start PHP-FPM
 php-fpm
