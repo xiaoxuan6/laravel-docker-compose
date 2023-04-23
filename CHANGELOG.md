@@ -2,6 +2,14 @@
 
 All notable changes to `xiaoxuan6/laravel-docker-compose` will be documented in this file.
 
+## v1.9.0 - 2023-04-23
+
+### What's Changed
+
+- Add cron service
+
+**Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.8.0...v1.9.0
+
 ## v1.8.0 - 2023-04-22
 
 #What's Changed
