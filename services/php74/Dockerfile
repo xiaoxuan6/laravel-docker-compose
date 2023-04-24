@@ -1,19 +1,16 @@
 FROM php:7.4-fpm-alpine
 
 ENV TZ=Asia/Shanghai
+ADD https://ghproxy.com/https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
-RUN docker-php-source extract \
-  && curl -L -o /tmp/reids.tar.gz https://codeload.github.com/phpredis/phpredis/tar.gz/5.0.2 \
-  && ( \
-      cd /tmp \
-      && tar -xzf reids.tar.gz \
-      && mv phpredis-5.0.2 /usr/src/php/ext/phpredis \
-      && docker-php-ext-install phpredis mysqli pdo pdo_mysql \
-  ) \
-  && rm -rf /tmp/reids.tar.gz \
-  && apk --no-cache add tzdata ca-certificates \
+RUN apk --no-cache add tzdata ca-certificates \
   && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
-  && echo $TZ > /etc/timezone
+  && echo $TZ > /etc/timezone \
+  && chmod +x /usr/local/bin/install-php-extensions \
+  && install-php-extensions zip \
+    mysqli \
+    redis \
+    pdo_mysql
 
 # 安装 supervisor
 COPY ./supervisord.conf /etc/supervisord.conf

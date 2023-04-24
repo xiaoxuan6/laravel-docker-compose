@@ -8,6 +8,8 @@ else:
 fi
 
 # Start cron
+# https://www.unix.com/man-page/centos/8/cron/
+# https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
 if [ "$START_CRON" = true ]; then
     crond -f -d 8 &
 fi
