@@ -41,25 +41,31 @@ services:
     networks:
       dnmp:
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
-    ports:
-      - "13306:80"
-    depends_on:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      MYSQL_USERNAME: "${DB_USERNAME}"
-      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
-    networks:
-      dnmp:
+  #  phpmyadmin:
+  #    image: phpmyadmin/phpmyadmin
+  #    container_name: phpmyadmin
+  #    ports:
+  #      - "13306:80"
+  #    depends_on:
+  #      - mysql
+  #    environment:
+  #      PMA_HOST: mysql
+  #      MYSQL_USERNAME: "${DB_USERNAME}"
+  #      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+  #    networks:
+  #      dnmp:
 
   redis:
     container_name: redis
-    image: redis
+    image: xiaoxuan/redis:apline
+    build:
+      context: ./services/redis
     ports:
       - 6379:6379
+    volumes:
+      - ./services/redis/redis.conf/:/usr/local/etc/redis.conf
+      - ./services/redis/redis.log:/usr/local/redis/redis.log
+      - ./services/redis/data:/usr/local/redis/data
     healthcheck:
       test: [ "CMD", "redis-cli","ping" ]
       interval: 30s
