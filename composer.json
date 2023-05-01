@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": ">=7.3",
-        "james.xue/search": "^0.43.0",
+        "james.xue/search": "^0.45.0",
         "symfony/finder": "^5.4"
     },
     "autoload": {
