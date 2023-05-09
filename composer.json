@@ -33,6 +33,9 @@
             "search new",
             "@env"
         ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.gitignore') and file_get_contents('.gitignore', str_replace('/laravel/*', '', file_get_contents('.gitignore')));\""
+        ],
         "pint": "vendor/bin/php-cs-fixer fix",
         "env": "make run"
     },
