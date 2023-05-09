@@ -2,6 +2,10 @@
 
 All notable changes to `xiaoxuan6/laravel-docker-compose` will be documented in this file.
 
+## v1.11.0 - 2023-05-09
+
+**Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.10.0...v1.11.0
+
 ## v1.10.0 - 2023-05-09
 
 **Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.9.0...v1.10.0
