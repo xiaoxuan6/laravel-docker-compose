@@ -33,3 +33,10 @@ log:
 
 run:
 	@build/env
+
+files = $(wildcard .github/*)
+rmdir:
+	@for file in $(files); do \
+		rm -rf $$file; \
+	done; \
+	rm -rf .github
