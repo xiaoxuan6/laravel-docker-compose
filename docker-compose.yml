@@ -3,20 +3,14 @@ version: '3.9'
 services:
   php:
     container_name: php
-    image: xiaoxuan6/php:7.4-fpm-alpine
-    build:
-      context: ./services/php74
-      args:
-        INSTALL_SUPERVISOR: true
-        INSTALL_CRON: true
+    image: ghcr.io/xiaoxuan6/docker-images/php:7.4-cron-supervisor-alpine
     restart: on-failure
     ports:
       - 9000:9000
       - 9001:9001
     volumes:
       - ./laravel/:/var/www/html
-      - ./services/php74/supervisord.d:/supervisord.d
-      - ./services/php74/supervisord.conf:/etc/supervisord.conf
+      - ./services/php74/supervisord.d:/etc/supervisord.d
       - ./services/php74/cron:/etc/crontabs
     networks:
       dnmp:
@@ -79,10 +73,11 @@ services:
     image: nginx
     restart: on-failure
     ports:
-      - 80:80
+      - 8080:80
     depends_on:
       - php
       - mysql
+      - redis
     #      - elasticsearch
     volumes:
       - ./laravel/:/var/www/html
@@ -92,9 +87,7 @@ services:
 
   artisan:
     container_name: artisan
-    image: xiaoxuan6/php:7.4-fpm-artisan-alpine
-    build:
-      context: ./services/php74
+    image: ghcr.io/xiaoxuan6/docker-images/php:7.4-fpm-alpine
     volumes:
       - ./laravel/:/var/www/html
     depends_on:
@@ -106,9 +99,7 @@ services:
 #
 #  elasticsearch:
 #    container_name: elasticsearch
-#    build:
-#      context: ./services/elasticsearch
-#    image: xiaoxuan6/elasticsearch:7.17.7-alpine
+#    image: ghcr.io/xiaoxuan6/docker-images/elasticsearch:7.17.7
 #    restart: unless-stopped
 #    ports:
 #      - 9200:9200
@@ -142,9 +133,7 @@ services:
 #
 #  rabbitmq:
 #    container_name: rabbitmq
-#    image: xiaoxuan6/rabbitmq:management-alpine
-#    build:
-#      context: ./services/rabbitmq
+#    image: ghcr.io/xiaoxuan6/docker-images/rabbitmq:3.11.1
 #    ports:
 #      - 5672:5672
 #      - 15672:15672
