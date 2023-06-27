@@ -2,6 +2,20 @@
 
 All notable changes to `xiaoxuan6/laravel-docker-compose` will be documented in this file.
 
+## v1.13.0 - 2023-06-27
+
+### What's Changed
+
+- Support PHP8
+- build(deps): bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/11
+- build(deps): update james.xue/search requirement from ^0.43.0 to ^0.44.0 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/10
+- build(deps): bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/12
+- build(deps): update james.xue/search requirement from ^0.44.0 to ^0.47.0 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/13
+- build(deps): update james.xue/search requirement from ^0.47.0 to ^0.50.0 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/16
+- build(deps): update james.xue/search requirement from ^0.50.0 to ^0.51.0 by @dependabot in https://github.com/xiaoxuan6/laravel-docker-compose/pull/17
+
+**Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.12.0...v1.13.0
+
 ## v1.12.0 - 2023-05-16
 
 **Full Changelog**: https://github.com/xiaoxuan6/laravel-docker-compose/compare/v1.11.0...v1.12.0
